@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PawCare | Pet Care Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h2>🐾 PawCare</h2>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#booking">Book Appointment</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <p class="tagline">CARE THAT MAKES TAILS WAG</p>
+            <h1>Because Your Pets<br>Deserve the Best.</h1>
+            <p class="description">
+                Professional pet care, veterinary consultations,
+                grooming and more — all in one place.
+            </p>
+            <a href="#booking" class="btn">Book an Appointment →</a>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <h2>Our Pet Care Services</h2>
+        <p class="section-description">
+            Everything your furry friend needs to stay happy and healthy.
+        </p>
+
+        <div class="service-container">
+            <div class="service-card">
+                <span>🩺</span>
+                <h3>Veterinary Care</h3>
+                <p>Professional consultations for your pet's health.</p>
+            </div>
+
+            <div class="service-card">
+                <span>🛁</span>
+                <h3>Pet Grooming</h3>
+                <p>Keep your pet clean, comfortable and well-groomed.</p>
+            </div>
+
+            <div class="service-card">
+                <span>🎾</span>
+                <h3>Pet Training</h3>
+                <p>Build good habits with positive training sessions.</p>
+            </div>
+        </div>
+    </section>
+
+    
+<section class="booking" id="booking">
+    <h2>Book Your Pet's Appointment 🐾</h2>
+    <p>Tell us a little about your pet and choose a convenient time.</p>
+
+    <form id="appointmentForm" class="booking-form">
+        <div class="form-grid">
+            <div class="form-group">
+                <label for="ownerName">Pet Owner's Name</label>
+                <input type="text" id="ownerName" required
+                       placeholder="Enter your full name">
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Contact Number</label>
+                <input type="tel" id="phone" required
+                       pattern="[0-9]{10}" maxlength="10"
+                       inputmode="numeric"
+                       placeholder="10-digit mobile number">
+            </div>
+
+            <div class="form-group">
+                <label for="petName">Pet's Name</label>
+                <input type="text" id="petName" required
+                       placeholder="e.g. Bruno">
+            </div>
+
+            <div class="form-group">
+                <label for="petType">Pet Type</label>
+                <select id="petType" required>
+                    <option value="">Select pet type</option>
+                    <option value="Dog">Dog</option>
+                    <option value="Cat">Cat</option>
+                    <option value="Bird">Bird</option>
+                    <option value="Rabbit">Rabbit</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="service">Choose a Service</label>
+                <select id="service" required>
+                    <option value="">Select a service</option>
+                    <option value="Veterinary Care">Veterinary Care</option>
+                    <option value="Pet Grooming">Pet Grooming</option>
+                    <option value="Pet Training">Pet Training</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="appointmentDate">Appointment Date</label>
+                <input type="date" id="appointmentDate" required>
+            </div>
+
+            <div class="form-group">
+                <label for="appointmentTime">Preferred Time</label>
+                <select id="appointmentTime" required>
+                    <option value="">Select a time</option>
+                    <option value="10:00 AM">10:00 AM</option>
+                    <option value="11:00 AM">11:00 AM</option>
+                    <option value="12:00 PM">12:00 PM</option>
+                    <option value="02:00 PM">02:00 PM</option>
+                    <option value="03:00 PM">03:00 PM</option>
+                    <option value="04:00 PM">04:00 PM</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="notes">Additional Notes (Optional)</label>
+                <input type="text" id="notes"
+                       placeholder="Any special requirements?">
+            </div>
+        </div>
+
+        <button type="submit" class="btn booking-submit">
+            Confirm Appointment →
+        </button>
+
+        <p id="bookingMessage" class="booking-message"
+           role="status" aria-live="polite"></p>
+    </form>
+</section>
+
+
+    <footer>
+        <p>© 2026 PawCare | Made with ❤️ for pets</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
