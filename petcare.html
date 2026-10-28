@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PawCare | Pet appointments</title>
+  <title>Pet Care Website</title>
+  <style>
+    body {
+      font-family: Arial;
+      background-color: lightblue;
+      text-align: center;
+      padding: 30px;
+    }
+
+    h1 {
+      color: darkgreen;
+    }
+
+    .box {
+      background-color: white;
+      padding: 20px;
+      margin: 15px auto;
+      max-width: 400px;
+      border-radius: 10px;
+    }
+
+    button {
+      background-color: darkgreen;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">🐾 PawCare</div>
+        <nav>
+            <a href="#services">Services</a>
+            <a href="#providers">Providers</a>
+            <a href="#pet">My pet</a>
+        </nav>
+    </header>
+<main>
+  <section class="hero">
+    <div>
+      <h1>Care that keeps tails wagging.</h1>
+      <p>Find trusted vets, groomers and trainers near you. Choose a service and request an appointment in just a few steps.</p>
+      <button onclick="openBooking()">Book an appointment</button>
+    </div>
+    <div class="paw">🐕</div>
+  </section>
+  <h2 class="section-title" id="services">Explore services</h2>
+  <section class="services">
+    <article class="service" onclick="chooseService('Veterinary checkup')">
+        <span>🩺</span>
+        <h3>Veterinary</h3>
+        <p>Checkups, vaccines and care</p>
+    </article>
+    <article class="service" onclick="chooseService('Grooming')">
+        <span>✂️</span>
+        <h3>Grooming</h3>
+        <p>Baths, trims and nail care</p>
+    </article>
+    <article class="service" onclick="chooseService('Training')">
+        <span>🎾</span>
+        <h3>Training</h3>
+        <p>One-on-one training sessions</p>
+    </article>
+    <article class="service" onclick="chooseService('Boarding')">
+        <span>🏡</span>
+        <h3>Boarding</h3>
+        <p>Comfortable stays for your pet</p>
+    </article>
+  </section>
+  <div class="cols">
+    <section><h2 class="section-title" id="providers">Nearby providers</h2>
+        <div class="panel">
+    <div class="provider"><div>
+        <h3>Dr. Maya Chen</h3>
+        <p>Veterinarian · Greenfield Vet Clinic<br>
+            ★ 4.9 · Next opening: Tuesday</p></div>
+            <button class="book" onclick="openBooking('Veterinary checkup','Dr. Maya Chen')">Book</button>
+        </div>
+    <div class="provider">
+        <div>
+            <h3>Avery Brooks</h3>
+            <p>Pet groomer · The Fluffy Paw<br>★ 4.8 · Next opening: Today</p>
+        </div>
+        <button class="book" onclick="openBooking('Grooming','Avery Brooks')">Book</button>
+    </div>
+    <div class="provider">
+        <div>
+            <h3>Jordan Lee</h3>
+            <p>Dog trainer · Good Company<br>★ 5.0 · Next opening: Wednesday</p>
+        </div>
+        <button class="book" onclick="openBooking('Training','Jordan Lee')">Book</button>
+    </div>
+    </div>
+    </section>
+  <section>
+    <h2 class="section-title" id="pet">My pet</h2>
+    <div class="panel"><div class="pet">
+        <span class="emoji">🐕</span>
+        <div><h3>Milo Parker</h3>
+            <p>Golden Retriever · 4 years old</p></div></div>
+            <div class="notice">💉 Rabies booster due soon. Book a checkup to keep Milo up to date.</div>
+        </div>
+    </section></div>
+</main>
+<div class="modal-bg" id="booking">
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="bookingTitle">
+        <button class="close" onclick="closeBooking()" aria-label="Close">✕</button>
+        <h2 id="bookingTitle">Request an appointment</h2>
+        <p>Choose a service and preferred time for Milo.</p>
+        <form id="bookingForm"><div class="field">
+            <label for="serviceSelect">Service</label>
+            <select id="serviceSelect">
+                <option>Veterinary checkup</option>
+                <option>Grooming</option>
+                <option>Training</option>
+                <option>Boarding</option>
+            </select>
+        </div>
+        <div class="field">
+            <label for="providerSelect">Provider</label>
+            <select id="providerSelect">
+                <option>Dr. Maya Chen</option>
+                <option>Avery Brooks</option>
+                <option>Jordan Lee</option>
+            </select>
+        </div>
+        <div class="field">
+            <label for="dateSelect">Preferred date</label>
+            <input id="dateSelect" type="date" required>
+        </div>
+        <div class="field">
+            <label for="timeSelect">Preferred time</label>
+            <select id="timeSelect">
+                <option>9:00 AM</option>
+                <option>10:30 AM</option>
+                <option>1:00 PM</option>
+                <option>2:30 PM</option>
+                <option>4:00 PM</option>
+            </select>
+        </div>
+        <button class="submit" type="submit">Send appointment request</button>
+    </form>
+</section>
+</div>
+<div class="toast" id="toast" role="status"></div>
+    <h1>Pet Care Portal</h1>
+  <p>Apne pet ke liye appointment book karein.</p>
+
+  <div class="box">
+    <h2>Hamari Services</h2>
+    <p>Veterinary checkup</p>
+    <p>Pet grooming</p>
+    <p>Pet training</p>
+  </div>
+
+  <div class="box">
+    <h2>Appointment Book Karein</h2>
+
+    <label>Pet ka naam:</label><br>
+    <input id="petName" type="text" placeholder="Jaise: Tommy"><br><br>
+
+    <label>Service chunein:</label><br>
+    <select id="service">
+      <option>Veterinary checkup</option>
+      <option>Pet grooming</option>
+      <option>Pet training</option>
+    </select><br><br>
+
+    <button onclick="bookAppointment()">Book Appointment</button>
+  </div>
+
+  <script>
+    function bookAppointment() {
+      let pet = document.getElementById("petName").value;
+      let service = document.getElementById("service").value;
+
+      if (pet === "") {
+        alert("Pehle apne pet ka naam likhein.");
+      } else {
+        alert(pet + " ke liye " + service + " appointment request ho gayi!");
+      }
+    }
+  </script>
+
+</body>
+</html>
